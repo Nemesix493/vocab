@@ -10,6 +10,9 @@ from pathlib import Path
 
 
 class BaseManager(ABC):
+
+    serializer_class = None
+
     @abstractmethod
     @staticmethod
     def get_path(managed_obj) -> Path:
@@ -19,6 +22,7 @@ class BaseManager(ABC):
     def save(cls, managed_obj) -> None:
         with open(cls.get_path(managed_obj), 'w', encoding='utf-8') as save_file:
             json_dump(
-                managed_obj,
+                cls.serializer_class(obj=managed_obj).data,
                 save_file
             )
+
