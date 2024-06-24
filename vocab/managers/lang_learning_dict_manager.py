@@ -18,5 +18,5 @@ class LangLearningDictManager(BaseManager):
         return f'{lang}.json'
 
     @classmethod
-    def get_path(cls, managed_obj) -> Path:
-        return BASE_LANG_DICT_DIR / cls.get_filename(managed_obj.lang)
+    def get_path(cls, *args, **kwargs) -> Path:
+        return BASE_LANG_DICT_DIR / cls.get_filename(*args, **kwargs)
