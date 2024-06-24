@@ -1,13 +1,12 @@
 from .lang import LangEnum
-from ..managers.lang_learning_dict_manager import LangLearningDictManager
 
 
 class LangLearningDict(dict):
 
-    manager_class = LangLearningDictManager
+    manager_class = None
 
-    def __init__(self, lang: LangEnum, *args, **kwargs):
-        self.lang = lang
+    def __init__(self, __lang__: LangEnum, *args, **kwargs):
+        self.__lang__ = __lang__
         super().__init__(self, *args, **kwargs)
 
     def add_learning_point(self, key: str) -> None:
