@@ -7,8 +7,8 @@ from abc import (
 class BaseSerializer(AbstractClass):
     def __init__(self, obj=None) -> None:
         self.obj = obj
-    
-    @abstractmethod
+
     @property
+    @abstractmethod
     def data(self):
         pass

@@ -1,1 +1,1 @@
-from .lang_dict_serializer import LangDictSerializer
+from .lang_dict_serializer import LangLearningDictSerializer

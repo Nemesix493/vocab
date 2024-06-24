@@ -1,2 +1,2 @@
 from .lang import LangEnum
-from .lang_dict import LangDict
+from .lang_learning_dict import LangLearningDict

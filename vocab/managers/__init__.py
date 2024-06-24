@@ -1,2 +1,1 @@
-from .lang_dict_manager import LangDictManager
-
+from .lang_learning_dict_manager import LangLearningDictManager

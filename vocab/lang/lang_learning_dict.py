@@ -1,7 +1,11 @@
 from .lang import LangEnum
+from ..managers.lang_learning_dict_manager import LangLearningDictManager
 
 
-class LangDict(dict):
+class LangLearningDict(dict):
+
+    manager_class = LangLearningDictManager
+
     def __init__(self, lang: LangEnum, *args, **kwargs):
         self.lang = lang
         super().__init__(self, *args, **kwargs)
@@ -14,3 +18,6 @@ class LangDict(dict):
 
     def reset_learning_point(self, key: str) -> None:
         self[key] = 0
+
+    def save(self):
+        self.manager_class.save(self)

@@ -1,7 +1,7 @@
 from .base import BaseSerializer
 
 
-class LangDictSerializer(BaseSerializer):
+class LangLearningDictSerializer(BaseSerializer):
     @property
     def data(self):
         return self.obj

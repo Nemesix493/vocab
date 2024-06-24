@@ -13,9 +13,9 @@ class BaseManager(ABC):
 
     serializer_class = None
 
+    @classmethod
     @abstractmethod
-    @staticmethod
-    def get_path(managed_obj) -> Path:
+    def get_path(cls, managed_obj) -> Path:
         pass
 
     @classmethod
