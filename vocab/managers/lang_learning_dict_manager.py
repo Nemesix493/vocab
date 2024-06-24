@@ -2,11 +2,8 @@ from pathlib import Path
 
 from .base import BaseManager
 from ..serializers import LangLearningDictSerializer
-from ..settings import DATA_DIR
+from ..settings import LANG_LEARNING_DICT_DIR
 from ..lang.lang import LangEnum
-
-
-BASE_LANG_DICT_DIR = DATA_DIR / 'lang_learning_dict'
 
 
 class LangLearningDictManager(BaseManager):
@@ -19,4 +16,4 @@ class LangLearningDictManager(BaseManager):
 
     @classmethod
     def get_path(cls, *args, **kwargs) -> Path:
-        return BASE_LANG_DICT_DIR / cls.get_filename(*args, **kwargs)
+        return LANG_LEARNING_DICT_DIR / cls.get_filename(*args, **kwargs)
