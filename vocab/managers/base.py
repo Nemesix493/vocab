@@ -20,7 +20,7 @@ class BaseManager(ABC):
 
     @classmethod
     def save(cls, managed_obj) -> None:
-        with open(cls.get_path(managed_obj.__lang__), 'w', encoding='utf-8') as save_file:
+        with open(cls.get_path(managed_obj.id), 'w', encoding='utf-8') as save_file:
             json_dump(
                 cls.serializer_class(obj=managed_obj).data,
                 save_file

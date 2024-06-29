@@ -15,6 +15,10 @@ class LangLearningDict(dict):
             self.__lang__ = __lang__
             super().__init__(self, *args, **kwargs)
             self.__instances__.append(self)
+    
+    @property
+    def id(self):
+        return self.__lang__
 
     def add_learning_point(self, key: str) -> None:
         if key in self.keys():
