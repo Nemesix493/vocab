@@ -5,6 +5,8 @@ from abc import (
 
 
 class BaseSerializer(AbstractClass):
+    __model_class__ = None
+
     def __init__(self, obj=None, data=None) -> None:
         self._obj = obj
         self._data = data
@@ -28,3 +30,11 @@ class BaseSerializer(AbstractClass):
     @abstractmethod
     def gen_obj(self):
         pass
+
+    @classmethod
+    @property
+    def model_class(cls):
+        if cls.__model_class__ is not None:
+            return cls.__model_class__
+        raise ValueError()
+        

@@ -11,7 +11,7 @@ from pathlib import Path
 
 class BaseManager(ABC):
 
-    serializer_class = None
+    __serializer_class__ = None
 
     @classmethod
     @abstractmethod
@@ -29,5 +29,12 @@ class BaseManager(ABC):
     @classmethod
     def load(cls, *args, **kwargs):
         with open(cls.get_path(*args, **kwargs), 'r', encoding='utf-8') as load_file:
-            return cls.serializer_class(data=json_load(load_file))
+            return cls.serializer_class(data=json_load(load_file)).obj
+    
+    @classmethod
+    @property
+    def serializer_class(cls):
+        if cls.__serializer_class__ is not None:
+            return cls.__serializer_class__
+        raise ValueError()
 
