@@ -1,14 +1,14 @@
 from pathlib import Path
 
-from .base import BaseManager
-from ..serializers import LangLearningDictSerializer
-from ..settings import LANG_LEARNING_DICT_DIR
-from ..lang.lang import LangEnum
+from ...managers.base import BaseManager
+from ...serializers import LangLearningDictSerializer
+from ...settings import LANG_LEARNING_DICT_DIR
+from ..lang import LangEnum
 
 
 class LangLearningDictManager(BaseManager):
 
-    serializer_class = LangLearningDictSerializer
+    __serializer_class__ = LangLearningDictSerializer
     
     @staticmethod
     def get_filename(lang: LangEnum):

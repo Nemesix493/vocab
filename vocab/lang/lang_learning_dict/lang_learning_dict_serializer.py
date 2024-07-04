@@ -1,9 +1,7 @@
-from .base import BaseSerializer
-from ..lang.lang_learning_dict import LangLearningDict
+from ...serializers.base import BaseSerializer
+from .lang_learning_dict import LangLearningDict
 
 class LangLearningDictSerializer(BaseSerializer):
-    model_class = LangLearningDict
-
     def gen_data(self):
         if self._obj is None:
             raise ValueError('You can\'t load data from None Object')

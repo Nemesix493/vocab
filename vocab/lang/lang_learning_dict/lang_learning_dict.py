@@ -1,4 +1,4 @@
-from .lang import LangEnum
+from ..lang import LangEnum
 
 
 class LangLearningDict(dict):

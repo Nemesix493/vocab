@@ -1,0 +1,7 @@
+from .lang_learning_dict import LangLearningDict
+from .lang_learning_dict_serializer import LangLearningDictSerializer
+from .lang_learning_dict_manager import LangLearningDictManager
+
+LangLearningDictSerializer.__model_class__ = LangLearningDict
+LangLearningDictManager.__serializer_class__ = LangLearningDictSerializer
+LangLearningDict.manager_class = LangLearningDictManager
