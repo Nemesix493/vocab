@@ -1,1 +1,1 @@
-from .lang_dict_serializer import LangLearningDictSerializer
+from .base import BaseSerializer
