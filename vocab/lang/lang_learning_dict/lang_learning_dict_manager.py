@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from ...managers.base import BaseManager
-from ...serializers import LangLearningDictSerializer
+from .lang_learning_dict_serializer import LangLearningDictSerializer
 from ...settings import LANG_LEARNING_DICT_DIR
 from ..lang import LangEnum
 
