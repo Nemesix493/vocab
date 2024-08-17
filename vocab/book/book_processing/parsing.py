@@ -4,18 +4,23 @@ from bs4 import BeautifulSoup
 from ...settings.base import FILTERED_SPECIAL_CHARS
 
 
-class ParsingBook(list):
+class ParsingBook:
     """
-    This class manage the pasing of book.
-    This class transform a book (html) to a list a word
+    This class manage the parsing of book paragraphs.
     """
 
-    def __init__(self, book_html_content: str) -> None:
-        for paragraph in self.parsing_html_paragraphs(book_html_content):
-            for word in self.paragraph_to_word_list(paragraph):
-                self.append(word)
+    @classmethod
+    def parse_book_words(cls, book_html_content: str) -> list[str]:
+        """
+        This method transform a book (html) to a list a word
+        """
+        paragraphs = list()
+        for paragraph in cls.parsing_html_paragraphs(book_html_content):
+            for word in cls.paragraph_to_word_list(paragraph):
+                paragraphs.append(word)
 
-    def parsing_html_paragraphs(self, book_html_content: str) -> list[str]:
+    @staticmethod
+    def parsing_html_paragraphs(book_html_content: str) -> list[str]:
         """
         This method parse the book paragraphs text to a list of str
         """
@@ -25,7 +30,8 @@ class ParsingBook(list):
             for p in soup.find_all('p')
         ]
 
-    def remove_special_chars(self, paragraph: str) -> str:
+    @staticmethod
+    def remove_special_chars(paragraph: str) -> str:
         """
         This method simply change special chars to a space
         """
@@ -33,13 +39,14 @@ class ParsingBook(list):
             paragraph = paragraph.replace(special_char, ' ')
         return paragraph
     
-    def paragraph_to_word_list(self, paragraph: str) -> list[str]:
+    @classmethod
+    def paragraph_to_word_list(cls, paragraph: str) -> list[str]:
         """
         This method take a paragrah a return a list of word
         remove the special chars and split the paragraph to make a word list
         filter the potential empty str due to the possible multiple spaces
         """
-        word_list = self.remove_special_chars(paragraph).split(' ')
+        word_list = cls.remove_special_chars(paragraph).split(' ')
         return [
             word
             for word in word_list
