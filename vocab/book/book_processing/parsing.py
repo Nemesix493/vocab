@@ -14,10 +14,11 @@ class ParsingBook:
         """
         This method transform a book (html) to a list a word
         """
-        paragraphs = list()
+        wordlist = list()
         for paragraph in cls.parsing_html_paragraphs(book_html_content):
             for word in cls.paragraph_to_word_list(paragraph):
-                paragraphs.append(word)
+                wordlist.append(word)
+        return wordlist
 
     @staticmethod
     def parsing_html_paragraphs(book_html_content: str) -> list[str]:
