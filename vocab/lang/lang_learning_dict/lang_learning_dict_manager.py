@@ -12,7 +12,7 @@ class LangLearningDictManager(BaseManager):
     
     @staticmethod
     def get_filename(lang: LangEnum):
-        return f'{lang}.json'
+        return f'{lang.value}.json'
 
     @classmethod
     def get_path(cls, *args, **kwargs) -> Path:
