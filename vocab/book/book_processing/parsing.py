@@ -27,8 +27,14 @@ class ParsingBook:
         """
         soup = BeautifulSoup(book_html_content, 'lxml')
         return [
-            p.text
-            for p in soup.find_all('p')
+            *[
+                p.text
+                for p in soup.find_all('p')
+            ],
+            *[
+                blockquote.text
+                for blockquote in soup.find_all('blockquote')
+            ],
         ]
 
     @staticmethod
