@@ -54,7 +54,7 @@ class Book:
     @proper_nouns.setter
     def proper_nouns(self, value: list[str]):
         if isinstance(value, list):
-            if all(isinstance(val, int) for val in value):
+            if all(isinstance(val, str) for val in value):
                 self._proper_nouns = value
                 return None
         raise ValueError('proper_nouns should be a list of String')
@@ -103,3 +103,6 @@ class Book:
     def get(cls, name: str):
         return cls.manager_class.load(name)
     
+    @classmethod
+    def book_list(cls):
+        return cls.manager_class.book_list()
