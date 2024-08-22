@@ -1,9 +1,12 @@
 from questionary import prompt
 
+from .add_an_ebook import add_an_ebook
+from .training_menu import TrainingMenu
+
 
 options = {
-    'Start to learn': lambda : print('Start to learn'),
-    'Add an ebook': lambda : print('Add an ebook'),
+    'Start to learn': TrainingMenu(),
+    'Add an ebook': add_an_ebook,
     'Quit': quit
 }
 
