@@ -102,3 +102,7 @@ class Book:
     @classmethod
     def get(cls, name: str):
         return cls.manager_class.load(name)
+    
+    @classmethod
+    def book_list(cls):
+        return cls.manager_class.book_list()
