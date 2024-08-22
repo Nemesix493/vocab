@@ -1,6 +1,6 @@
 from questionary import prompt
 
-from .training import training
+from .training import Training
 from .base_view import BaseView
 from ..book.book import Book
 
@@ -28,6 +28,6 @@ class TrainingMenu(BaseView):
         ]
     
     def __call__(self, *args, **kwargs):
-        training(
+        Training(
             Book.get(prompt(self.get_template())['book_name'])
-        )
+        )()
