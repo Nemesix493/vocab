@@ -69,7 +69,7 @@ class Training(BaseView):
                     for key, val in words_per_sorted_by_level.items()
                     if key != self.number_levels - 1
                 ])
-            else:
+            elif word_level >= self.number_levels - 1:
                 words_per_sorted_by_level[self.number_levels - 1].append(word)
         return words_per_sorted_by_level
 
