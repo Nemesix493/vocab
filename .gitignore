@@ -1,0 +1,9 @@
+/env/
+**/__pycache__/
+/data/
+/alembic/
+/common_words/
+alembic.ini
+pre.json
+old_run.py
+/vocab/.gitignore

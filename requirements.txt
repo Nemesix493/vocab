@@ -1,0 +1,4 @@
+mobi>=0.3.3
+BeautifulSoup4>=4.12.3
+lxml>=5.2.2
+questionary>=2.0.1
